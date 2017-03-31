@@ -2,7 +2,7 @@
 
 from collections import namedtuple
 
-MyExpense = namedtuple('F', ('type_', 'amount'))
+MyExpense = namedtuple('MyExpense', ('type_', 'amount'))
 
 # test data
 foo = []
