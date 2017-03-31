@@ -5,9 +5,9 @@ from collections import namedtuple, defaultdict
 MyExpense = namedtuple('MyExpense', ('type_', 'amount'))
 
 
-def sum_expenses(min_amount, input):
+def sum_expenses(min_amount, expenses):
     aggregated_expenses = defaultdict(int)
-    for expense in input:
+    for expense in expenses:
         if expense.amount >= min_amount:
             aggregated_expenses[expense.type_] += expense.amount
 
