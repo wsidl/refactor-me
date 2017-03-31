@@ -13,7 +13,7 @@ def summarize_expenses(min_amount, input):
             expenses[expense.type_] = expenses[expense.type_] + expense.amount
 
     for expense, amount in sorted(expenses.items(), key=lambda e: e[1], reverse=False):
-        print(expense.type_, amount)
+        print(expense, amount)
 
 # test data
 # TODO(dmu) HIGH: Use static fixtures and dynamic fixture framework instead
