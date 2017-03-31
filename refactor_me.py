@@ -5,11 +5,8 @@ from collections import namedtuple
 MyExpense = namedtuple('MyExpense', ('type_', 'amount'))
 
 # test data
-foo = []
-foo.append(MyExpense('food', 4))
-foo.append(MyExpense('food', 3))
-foo.append(MyExpense('car', 3))
-foo.append(MyExpense('dog', 1))
+# TODO(dmu) HIGH: Use static fixtures and dynamic fixture framework instead
+foo = [MyExpense('food', 4), MyExpense('food', 3), MyExpense('car', 3), MyExpense('dog', 1)]
 
 
 def summarizeExpenses(min_amount, input):
