@@ -9,8 +9,7 @@ def summarize_expenses(min_amount, input):
     expenses = {}
     for expense in input:
         if expense.amount >= min_amount:
-            if not expense.type_ in expenses:
-                expenses[expense.type_] = 0
+            expenses.setdefault(expense.type_, 0)
             expenses[expense.type_] = expenses[expense.type_] + expense.amount
 
     for (expense, amount) in sorted(expenses.items(), key=lambda e: e[1], reverse=False):
