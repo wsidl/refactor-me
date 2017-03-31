@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from .models import Expense
 from collections import namedtuple
 
 MyExpense = namedtuple('F', ['type_', 'amount'])
