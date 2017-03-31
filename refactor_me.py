@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 
-foo = []
-
 from .models import Expense
 from collections import namedtuple
 
 MyExpense = namedtuple('F', ['type_', 'amount'])
 
 # test data
+foo = []
 foo.append(MyExpense('food', 4))
 foo.append(MyExpense('food', 3))
 foo.append(MyExpense('car', 3))
