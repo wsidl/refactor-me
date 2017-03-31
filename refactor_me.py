@@ -12,7 +12,7 @@ def summarize_expenses(min_amount, input):
             expenses.setdefault(expense.type_, 0)
             expenses[expense.type_] = expenses[expense.type_] + expense.amount
 
-    for (expense, amount) in sorted(expenses.items(), key=lambda e: e[1], reverse=False):
+    for expense, amount in sorted(expenses.items(), key=lambda e: e[1], reverse=False):
         print(expense.type_, amount)
 
 # test data
