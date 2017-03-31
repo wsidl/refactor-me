@@ -2,7 +2,7 @@
 
 from collections import namedtuple, defaultdict
 
-MyExpense = namedtuple('MyExpense', ('type_', 'amount'))
+Expense = namedtuple('Expense', ('type_', 'amount'))
 
 
 def sum_expenses(expenses, min_amount=0):
@@ -20,6 +20,5 @@ def print_expenses(expenses):
 
 
 # TODO(dmu) HIGH: Use static fixtures and dynamic fixture framework instead
-test_expenses = [MyExpense('food', 4), MyExpense('food', 3), MyExpense('car', 3),
-                 MyExpense('dog', 1)]
+test_expenses = [Expense('food', 4), Expense('food', 3), Expense('car', 3), Expense('dog', 1)]
 print_expenses(sum_expenses(test_expenses, 2))
