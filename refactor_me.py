@@ -19,7 +19,7 @@ def print_expenses(expenses):
         print(expense, amount)
 
 
-# test data
 # TODO(dmu) HIGH: Use static fixtures and dynamic fixture framework instead
-foo = [MyExpense('food', 4), MyExpense('food', 3), MyExpense('car', 3), MyExpense('dog', 1)]
-print_expenses(sum_expenses(foo, 2))
+test_expenses = [MyExpense('food', 4), MyExpense('food', 3), MyExpense('car', 3),
+                 MyExpense('dog', 1)]
+print_expenses(sum_expenses(test_expenses, 2))
