@@ -5,7 +5,7 @@ from collections import namedtuple, defaultdict
 MyExpense = namedtuple('MyExpense', ('type_', 'amount'))
 
 
-def sum_expenses(min_amount, expenses):
+def sum_expenses(expenses, min_amount=0):
     aggregated_expenses = defaultdict(int)
     for expense in expenses:
         if expense.amount >= min_amount:
@@ -18,4 +18,4 @@ def sum_expenses(min_amount, expenses):
 # test data
 # TODO(dmu) HIGH: Use static fixtures and dynamic fixture framework instead
 foo = [MyExpense('food', 4), MyExpense('food', 3), MyExpense('car', 3), MyExpense('dog', 1)]
-sum_expenses(2, foo)
+sum_expenses(foo, 2)
