@@ -11,7 +11,7 @@ def summarize_expenses(min_amount, input):
         if expense.amount >= min_amount:
             expenses[expense.type_] += expense.amount
 
-    for expense, amount in sorted(expenses.items(), key=lambda e: e[1], reverse=False):
+    for expense, amount in sorted(expenses.items(), key=lambda x: x[1], reverse=False):
         print(expense, amount)
 
 # test data
