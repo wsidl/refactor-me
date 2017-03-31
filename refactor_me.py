@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 
-from collections import namedtuple
+from collections import namedtuple, defaultdict
 
 MyExpense = namedtuple('MyExpense', ('type_', 'amount'))
 
 
 def summarize_expenses(min_amount, input):
-    expenses = {}
+    expenses = defaultdict(int)
     for expense in input:
         if expense.amount >= min_amount:
-            expenses.setdefault(expense.type_, 0)
-            expenses[expense.type_] = expenses[expense.type_] + expense.amount
+            expenses[expense.type_] += expense.amount
 
     for expense, amount in sorted(expenses.items(), key=lambda e: e[1], reverse=False):
         print(expense, amount)
