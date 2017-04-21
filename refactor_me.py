@@ -21,6 +21,5 @@ def print_expenses(expenses):
 
 if __name__ == '__main__':
     # TODO(dmu) HIGH: Use static fixtures and dynamic fixture framework instead
-    test_expenses = [Expense('food', 4), Expense('food', 3),
-                     Expense('car', 3), Expense('dog', 1)]
+    test_expenses = (Expense('food', 4), Expense('food', 3), Expense('car', 3), Expense('dog', 1))
     print_expenses(sum_expenses(test_expenses, 2))
