@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from collections import namedtuple, defaultdict
+from operator import itemgetter
 
 Expense = namedtuple('Expense', ('type_', 'amount'))
 
@@ -14,8 +15,7 @@ def sum_expenses(expenses, min_amount=0):
 
 
 def print_expenses(expenses):
-    for expense, amount in sorted(expenses.items(),
-                                  key=lambda x: x[1], reverse=False):
+    for expense, amount in sorted(expenses.items(), key=itemgetter(1), reverse=False):
         print(expense, amount)
 
 
