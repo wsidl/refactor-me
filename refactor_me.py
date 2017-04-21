@@ -16,7 +16,7 @@ def sum_expenses(expenses, min_amount=0):
 
 
 def print_expenses(expenses):
-    for expense, amount in sorted(expenses.items(), key=itemgetter(1), reverse=False):
+    for expense, amount in sorted(expenses.items(), key=itemgetter(1)):
         print(expense, amount)
 
 
