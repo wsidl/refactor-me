@@ -7,6 +7,15 @@ Expense = namedtuple('Expense', ('category', 'amount'))
 
 
 def sum_expenses(expenses, min_amount=0):
+    """Aggregates all Expense entries into a categorized list of sums
+
+    Args:
+        expenses (iter(Expense)): Iterable of Expenses to be summed
+        min_amount (int): Minimum value to match to be included with the result
+
+    Returns:
+        dict: Category-grouped results of summed values
+    """
     aggregated_expenses = defaultdict(int)
     for category, amount in expenses:
         if amount >= min_amount:
@@ -15,6 +24,11 @@ def sum_expenses(expenses, min_amount=0):
 
 
 def print_expenses(expenses):
+    """Takes a dictionary and prints the results to the command line
+
+    Args:
+        expenses (dict): Values to output to command line
+    """
     for expense, amount in sorted(expenses.items(), key=itemgetter(1)):
         print(expense, amount)
 
