@@ -2,6 +2,8 @@
 
 from collections import namedtuple, defaultdict
 from operator import itemgetter
+from sys import stdout
+import io
 
 Expense = namedtuple('Expense', ('category', 'amount'))
 
@@ -23,17 +25,23 @@ def sum_expenses(expenses, min_amount=0):
     return aggregated_expenses
 
 
-def print_expenses(expenses):
-    """Takes a dictionary and prints the results to the command line
+def format_dict(input_dict, write_out=None):
+    """Takes a dictionary and prints the results to the command line or other output stream
 
     Args:
-        expenses (dict): Values to output to command line
+        input_dict (dict): Values to output to command line
+        write_out (io.IOBase): Output object that receives the formatted string, defaults writing to terminal
     """
-    for expense, amount in sorted(expenses.items(), key=itemgetter(1)):
-        print(expense, amount)
+    key_size = max([len(key) for key in input_dict.keys()])
+    (write_out or stdout).write(
+        ''.join([
+            '{: <{}} {}\n'.format(key, key_size, value)
+            for key, value in sorted(input_dict.items(), key=itemgetter(1))
+        ])
+    )
 
 
 if __name__ == '__main__':
     # TODO(dmu) HIGH: Use static fixtures and dynamic fixture framework instead
     test_expenses = (Expense('food', 4), Expense('food', 3), Expense('car', 3), Expense('dog', 1))
-    print_expenses(sum_expenses(test_expenses, 2))
+    format_dict(sum_expenses(test_expenses, 2))
