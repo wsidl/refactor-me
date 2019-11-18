@@ -3,13 +3,14 @@
 from collections import namedtuple, defaultdict
 from operator import itemgetter
 from sys import stdout
+from os import linesep
 import io
 
 Expense = namedtuple('Expense', ('category', 'amount'))
 
 
 def sum_expenses(expenses, min_amount=0):
-    """Aggregates all Expense entries into a categorized list of sums
+    """Sum all Expense entries into a categorized list of sums
 
     Args:
         expenses (iter(Expense)): Iterable of Expenses to be summed
@@ -26,17 +27,18 @@ def sum_expenses(expenses, min_amount=0):
 
 
 def format_dict(input_dict, write_out=None):
-    """Takes a dictionary and prints the results to the command line or other output stream
+    """Formats the input dictionary into a columnar structure to command line or an
+    other output stream.
 
     Args:
         input_dict (dict): Values to output to command line
         write_out (io.IOBase): Output object that receives the formatted string, defaults
             writing to terminal
     """
-    key_size = max([len(key) for key in input_dict.keys()])
+    key_size = max(len(key) for key in input_dict.keys())
     (write_out or stdout).write(
         ''.join([
-            '{: <{}} {}\n'.format(key, key_size, value)
+            '{: <{}} {}{}'.format(key, key_size, value, linesep)
             for key, value in sorted(input_dict.items(), key=itemgetter(1))
         ])
     )
